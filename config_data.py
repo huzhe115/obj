@@ -1,4 +1,7 @@
-from langchain_community.embeddings import DashScopeEmbeddings
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 md5_path = "./md5.text"
 
@@ -16,10 +19,10 @@ max_split_char_number = 1000
 similarity_threshold = 5
 
 embeddings_model_name="text-embedding-v4"
-dashscope_api_key = "sk-1be70003a1a64abe9db254139f0f0abe"
+dashscope_api_key = os.getenv("DASHSCOPE_API_KEY")
 
 chat_model_name = "deepseek-chat"
-api_key = "sk-3155cdf820e64531b9aac730badcd23b"
+api_key = os.getenv("DEEPSEEK_API_KEY")
 base_url = "https://api.deepseek.com"
 
 session_config = {
@@ -27,4 +30,3 @@ session_config = {
             "session_id":"user_001"
         }
     }
-
